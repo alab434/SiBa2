@@ -37,7 +37,7 @@ def menu_opcoes():
 
 # def calcular_saldo(valores):
 # 	valor_saldo = 0.00
-# 	for item in conta_extrato_historico:
+# 	for item in extrato_historico:
 # 		valor_saldo += -item[1] if item[0] == 'SAQUE' else item[1]
 # 	return valor_saldo
 
@@ -92,7 +92,7 @@ def depositar(saldo, valor_deposito, extrato, /):
 ## regra2: retorno: saldo, extrato
 def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
 	voltar = -99
-	# saldo_disponivel = calcular_saldo(conta_extrato_historico)
+	# saldo_disponivel = calcular_saldo(extrato_historico)
 	# global saques_efetuados_dia
 	# global saques_valor_total_dia
 
@@ -255,7 +255,7 @@ def main():
 	numero_saques = 0
 	id_conta = 0
 	saldo = 0
-	conta_extrato_historico = [] # extrato = ''
+	extrato_historico = [] # extrato = ''
 	lista_usuarios = []
 	lista_contas = []
 
@@ -268,13 +268,13 @@ def main():
 			[3] SACAR                   [6] EXIBIR CONTAS
 		"""
 		if opcao_escolhida == 1:
-			extrato(saldo, extrato=conta_extrato_historico)
+			extrato(saldo, extrato=extrato_historico)
 		elif opcao_escolhida == 2:
 			valor_deposito = float(input('>> QUAL O VALOR DE DEPÓSITO? '))
-			saldo, conta_extrato_historico = depositar(saldo, valor_deposito, conta_extrato_historico)
+			saldo, extrato_historico = depositar(saldo, valor_deposito, extrato_historico)
 		elif opcao_escolhida == 3:
 			valor_saque = float(input('\n>> QUAL O VALOR DO SAQUE? '))
-			saldo, conta_extrato_historico, numero_saques = sacar(saldo=saldo, valor=valor_saque, extrato=conta_extrato_historico, limite=SAQUES_VALOR_LIMITE_POR_TRANSACAO, numero_saques=numero_saques, limite_saques=SAQUES_QUANTIDADE_POR_DIA)
+			saldo, extrato_historico, numero_saques = sacar(saldo=saldo, valor=valor_saque, extrato=extrato_historico, limite=SAQUES_VALOR_LIMITE_POR_TRANSACAO, numero_saques=numero_saques, limite_saques=SAQUES_QUANTIDADE_POR_DIA)
 		elif opcao_escolhida == 4:
 			novo_usuario = criar_usuario(lista_usuarios)
 		elif opcao_escolhida == 5:
