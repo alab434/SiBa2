@@ -1,2 +1,2 @@
 # SiBa2
-Resolução do desafio: Otimizando o Sistema bancario com Funções Python
+Resolução do desafio: Otimizando o Sistema Bancário com Funções Python
